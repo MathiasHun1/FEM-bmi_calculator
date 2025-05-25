@@ -1,5 +1,6 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import { Box, Paper, Stack, Typography } from '@mui/material';
 
 const data = [
   {
@@ -36,10 +37,27 @@ const data = [
 
 const Limitations = () => {
   return (
-    <Container maxWidth="xl">
-      <Grid container>
+    <Container
+      maxWidth="xl"
+      sx={{ pb: 12, backgroundColor: 'var(--clr-blue-100)' }}
+    >
+      <Grid container spacing={2}>
         {data.map((card) => (
-          <div></div>
+          <Grid size={{ xs: 12 }}>
+            <Paper sx={{ p: 3, borderRadius: '16px' }}>
+              <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
+                <Box>
+                  <img src={card.icon} alt="" />
+                </Box>
+                <Typography className="text-5-sb" component="h2">
+                  {card.title}
+                </Typography>
+              </Stack>
+              <Typography className="text-6-reg text-light">
+                {card.description}
+              </Typography>
+            </Paper>
+          </Grid>
         ))}
       </Grid>
     </Container>

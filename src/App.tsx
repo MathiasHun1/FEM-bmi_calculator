@@ -7,10 +7,11 @@ import Paper from '@mui/material/Paper';
 import Form from './components/Form';
 import Informational from './components/Informational';
 import LifeStyle from './components/LifeStyle';
+import Limitations from './components/Limitations';
 
 function App() {
   return (
-    <Box sx={{ pb: 28 }}>
+    <Box>
       <Container
         maxWidth="xl"
         sx={{
@@ -68,12 +69,27 @@ function App() {
       </Container>
 
       {/*---------- INFO SECTION ----------*/}
-      <Informational />
+      <Informational
+        imageSource="/images/image-man-eating.webp"
+        title=" What your BMI result means"
+        bodyText="A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'
+              Maintaining a healthy weight may lower your chances of
+              experiencing health issues later on, such as obesity and type 2
+              diabetes. Aim for a nutritious diet with reduced fat and sugar
+              content, incorporating ample fruits and vegetables. Additionally,
+              strive for regular physical activity, ideally about 30 minutes
+              daily for five days a week."
+      />
 
       {/*---------- LIFESTYLE SECTION --------*/}
       <LifeStyle />
 
       {/*--------- LIMITATIONS SECTION --------*/}
+      <Informational
+        title="Limitations of BMI"
+        bodyText="Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use."
+      />
+      <Limitations />
     </Box>
   );
 }

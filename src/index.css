@@ -6,7 +6,8 @@ body,
 
 :root {
   /* Colors */
-  --clr-blue-100: #e1e7fe;
+  /* --clr-blue-100: #e1e7fe; */
+  --clr-blue-100: #e7f5fe;
   --clr-blue-300: #b3d3f1;
   --clr-blue-500: #345ff6;
   --clr-blue-900: #253347;
