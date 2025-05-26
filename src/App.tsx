@@ -11,7 +11,7 @@ import Limitations from './components/Limitations';
 
 function App() {
   return (
-    <Box>
+    <Box sx={{ pb: 10 }}>
       <Container
         maxWidth="xl"
         sx={{
@@ -70,6 +70,8 @@ function App() {
 
       {/*---------- INFO SECTION ----------*/}
       <Informational
+        topSpacing="50px"
+        bottomSpacing="50px"
         imageSource="/images/image-man-eating.webp"
         title=" What your BMI result means"
         bodyText="A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'
@@ -86,6 +88,8 @@ function App() {
 
       {/*--------- LIMITATIONS SECTION --------*/}
       <Informational
+        topSpacing="50px"
+        bottomSpacing="50px"
         title="Limitations of BMI"
         bodyText="Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use."
       />

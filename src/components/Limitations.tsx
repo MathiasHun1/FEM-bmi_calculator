@@ -37,14 +37,17 @@ const data = [
 
 const Limitations = () => {
   return (
-    <Container
-      maxWidth="xl"
-      sx={{ pb: 12, backgroundColor: 'var(--clr-blue-100)' }}
-    >
+    <Container maxWidth="xl">
       <Grid container spacing={2}>
         {data.map((card) => (
-          <Grid size={{ xs: 12 }}>
-            <Paper sx={{ p: 3, borderRadius: '16px' }}>
+          <Grid size={{ xs: 12 }} key={card.title}>
+            <Paper
+              sx={{
+                p: 3,
+                borderRadius: '16px',
+                boxShadow: '0 10px 20px 10px var(--clr-blue-100)',
+              }}
+            >
               <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
                 <Box>
                   <img src={card.icon} alt="" />

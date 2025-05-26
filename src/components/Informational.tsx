@@ -6,22 +6,29 @@ const Informational = ({
   title,
   bodyText,
   imageSource,
+  topSpacing,
+  bottomSpacing,
 }: {
   title: string;
   bodyText: string;
   imageSource?: string;
+  topSpacing: string;
+  bottomSpacing: string;
 }) => {
   return (
     <article>
-      <Grid container sx={{ pb: 7 }}>
+      <Grid
+        container
+        sx={{ paddingTop: topSpacing, paddingBottom: bottomSpacing }}
+      >
         {imageSource && (
-          <Grid size={{ xs: 12 }}>
+          <Grid size={{ xs: 12 }} sx={{ pb: 6 }}>
             <img src={imageSource} alt="" style={{ width: '100%' }} />
           </Grid>
         )}
 
         <Grid size={{ xs: 12 }}>
-          <Paper sx={{ pt: 5, pb: 7, px: 2.5 }} elevation={0}>
+          <Paper sx={{ px: 2.5 }} elevation={0}>
             <Typography className="text-3-sb text-dark" sx={{ mb: 3 }}>
               {title}
             </Typography>
