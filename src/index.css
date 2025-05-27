@@ -81,6 +81,7 @@ body,
 
 .animated_card {
   opacity: 0;
+  transition: opacity 500ms ease;
 }
 
 .animated_card.visible {
