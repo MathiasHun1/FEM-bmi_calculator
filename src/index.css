@@ -89,18 +89,3 @@ body,
   opacity: 1;
   transform: translateX(0%) !important;
 }
-
-/* Target safari browsers */
-@media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-    .animated_card {
-      opacity: 0;
-      transition: opacity 500ms ease;
-      -webkit-transition: opacity 500ms ease;
-    }
-
-    .animated_card.visible {
-      opacity: 1;
-    }
-  }
-}
