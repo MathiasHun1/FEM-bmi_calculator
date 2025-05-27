@@ -49,6 +49,7 @@ const Limitations = () => {
     const observers: IntersectionObserver[] = [];
 
     if (cardRefs.current.length > 0) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       cardRefs.current.forEach((elem) => {
         const observer = createObserver();
         observers.push(observer);
@@ -63,11 +64,11 @@ const Limitations = () => {
         threshold: 1.0,
       };
       //intersection callback
-      const callback = (entries) => {
+      const callback = (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const node = entry.target;
-            node.style.opacity = 1;
+            const node = entry.target as HTMLDivElement;
+            node.style.opacity = '1';
             node.style.transform = 'translateX(0)';
           }
         });
