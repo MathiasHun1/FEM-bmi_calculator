@@ -68,8 +68,6 @@ const Limitations = () => {
           if (entry.isIntersecting) {
             const node = entry.target as HTMLDivElement;
             node.classList.add('visible');
-            node.style.opacity = '1';
-            node.style.transform = 'translateX(0)';
           }
         });
       };
@@ -95,11 +93,6 @@ const Limitations = () => {
                 cardRefs.current[index] = node; //  ref callback to set references dynamically
               }}
               className="animated_card"
-              style={{
-                opacity: 0,
-                transform: 'translateX(100%)',
-                transition: 'transform 500ms ease, opacity 500ms ease',
-              }}
             >
               <Card card={card} />
             </div>
