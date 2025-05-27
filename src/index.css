@@ -83,6 +83,7 @@ body,
   opacity: 0;
   transform: translateX(100%);
   transition: opacity 500ms ease, transform 500ms ease;
+  will-change: transform, opacity;
   -webkit-transform: translateX(100%);
   -webkit-transition: opacity 500ms ease, -webkit-transform 500ms ease;
 }
@@ -90,5 +91,5 @@ body,
 .animated_card.visible {
   opacity: 1;
   transform: translateX(0%);
-  -webkit-transform: translateX(0%);
+  -webkit-transform: translateX(1px);
 }
