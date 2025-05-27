@@ -59,13 +59,15 @@ const Limitations = () => {
       //intersection options
       const options = {
         root: null,
-        rootMargin: '0px 0px 0px 0px',
-        threshold: 1.0,
+        rootMargin: '0px 0px -200px 0px',
+        threshold: 0,
       };
       //intersection callback
       const callback = (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            console.log('INTER');
+
             const node = entry.target as HTMLDivElement;
             node.classList.add('visible');
           }
@@ -80,7 +82,7 @@ const Limitations = () => {
         observers[i].observe(element);
       }
     });
-  }, []);
+  });
 
   return (
     <Container maxWidth="xl">

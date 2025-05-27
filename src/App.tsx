@@ -11,7 +11,7 @@ import Limitations from './components/Limitations';
 
 function App() {
   return (
-    <Box sx={{ pb: 10 }}>
+    <Box sx={{ pb: 10, overflowX: 'hidden' }}>
       <Container
         maxWidth="xl"
         sx={{
