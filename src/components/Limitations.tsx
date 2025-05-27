@@ -49,8 +49,7 @@ const Limitations = () => {
     const observers: IntersectionObserver[] = [];
 
     if (cardRefs.current.length > 0) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      cardRefs.current.forEach((elem) => {
+      cardRefs.current.forEach(() => {
         const observer = createObserver();
         observers.push(observer);
       });
