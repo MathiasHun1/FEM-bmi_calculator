@@ -86,13 +86,14 @@ function App() {
       {/*---------- LIFESTYLE SECTION --------*/}
       <LifeStyle />
 
-      {/*--------- LIMITATIONS SECTION --------*/}
+      {/*---------- INFO SECTION ----------*/}
       <Informational
         topSpacing="50px"
         bottomSpacing="50px"
         title="Limitations of BMI"
         bodyText="Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use."
       />
+      {/*--------- LIMITATIONS SECTION --------*/}
       <Limitations />
     </Box>
   );
