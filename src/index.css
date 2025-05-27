@@ -82,10 +82,16 @@ body,
 .animated_card {
   opacity: 0;
   transform: matrix(1, 0, 0, 1, 900, 0);
-  transition: transform 500ms ease;
+  transition: transform 500ms ease, opacity 500ms ease;
+  -webkit-transform: matrix(1, 0, 0, 1, 900, 0);
+  -webkit-transition: -webkit-transform 500ms ease, opacity 500ms ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .animated_card.visible {
   opacity: 1;
   transform: matrix(1, 0, 0, 1, 0, 0);
+  -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
 }
