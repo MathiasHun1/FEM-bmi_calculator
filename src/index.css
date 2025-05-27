@@ -81,7 +81,10 @@ body,
 
 .animated_card {
   opacity: 0;
-  transition: opacity 500ms ease;
+  transform: translateX(100%);
+  transition: opacity 500ms ease, transform 500ms ease;
+  -webkit-transform: translateX(100%);
+  -webkit-transition: opacity 500ms ease, -webkit-transform 500ms ease;
 }
 
 .animated_card.visible {
