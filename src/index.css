@@ -79,13 +79,33 @@ body,
 
 /* Global classnames */
 
-.animated_card {
+.animated_card--right {
   opacity: 0;
   transform: translateX(90%);
-  transition: opacity 900ms ease, transform 900ms ease;
+  transition: opacity 1500ms ease, transform 900ms ease;
 }
 
-.animated_card.visible {
+.animated_card--left {
+  opacity: 0;
+  transform: translateX(-90%);
+  transition: opacity 1500ms ease, transform 900ms ease;
+}
+
+.animated_card--opacity {
+  opacity: 0;
+  transition: opacity 1500ms ease;
+}
+
+.animated_card--right.visible {
   opacity: 1;
-  transform: translateX(0%) !important;
+  transform: translateX(0%);
+}
+
+.animated_card--left.visible {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.animated_card--opacity.visible {
+  opacity: 1;
 }

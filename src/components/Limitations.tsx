@@ -1,7 +1,8 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { Box, Paper, Stack, Typography } from '@mui/material';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
+import { useIntersectionObserver } from '../hooks/useIntersectoinObserver';
 
 const data = [
   {
@@ -36,53 +37,10 @@ const data = [
   },
 ];
 
-type CardType = {
-  icon: string;
-  title: string;
-  description: string;
-};
-
 const Limitations = () => {
   const cardRefs = useRef<HTMLDivElement[] | null[]>([]);
 
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-
-    if (cardRefs.current.length > 0) {
-      cardRefs.current.forEach(() => {
-        const observer = createObserver();
-        observers.push(observer);
-      });
-    }
-
-    function createObserver() {
-      //intersection options
-      const options = {
-        root: null,
-        rootMargin: '0px 0px -200px 0px',
-        threshold: 0,
-      };
-      //intersection callback
-      const callback = (entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            console.log('INTER');
-
-            const node = entry.target as HTMLDivElement;
-            node.classList.add('visible');
-          }
-        });
-      };
-
-      return new IntersectionObserver(callback, options);
-    }
-
-    cardRefs.current.forEach((element, i) => {
-      if (element) {
-        observers[i].observe(element);
-      }
-    });
-  });
+  useIntersectionObserver(cardRefs.current);
 
   return (
     <Container maxWidth="xl">
@@ -92,9 +50,9 @@ const Limitations = () => {
             <div
               key={card.title}
               ref={(node) => {
-                cardRefs.current[index] = node; //  ref callback to set references dynamically
+                cardRefs.current[index] = node; // ref callback to set references dynamically
               }}
-              className="animated_card"
+              className="animated_card--right"
             >
               <Card card={card} />
             </div>
@@ -104,7 +62,13 @@ const Limitations = () => {
   );
 };
 
-const Card = ({ card }: { card: CardType }) => {
+type CardProps = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+const Card = ({ card }: { card: CardProps }) => {
   return (
     <Grid size={{ xs: 12 }} key={card.title}>
       <Paper

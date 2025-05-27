@@ -2,6 +2,8 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import { styled, Typography } from '@mui/material';
+import { useIntersectionObserver } from '../hooks/useIntersectoinObserver';
+import { useRef } from 'react';
 
 const data = [
   {
@@ -32,6 +34,10 @@ const ImageWrapper = styled(Box)({
 });
 
 const LifeStyle = () => {
+  const cardsRef = useRef<HTMLDivElement[] | null[]>([]);
+
+  useIntersectionObserver(cardsRef.current);
+
   return (
     <Container
       maxWidth="xl"
@@ -41,8 +47,15 @@ const LifeStyle = () => {
       }}
     >
       <Stack spacing={5}>
-        {data.map((card) => (
-          <Stack spacing={3} key={card.title}>
+        {data.map((card, index) => (
+          <Stack
+            spacing={3}
+            key={card.title}
+            ref={(node) => {
+              cardsRef.current[index] = node;
+            }}
+            className="animated_card--left"
+          >
             <ImageWrapper>
               <img src={card.icon} alt="" />
             </ImageWrapper>
