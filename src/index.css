@@ -67,6 +67,12 @@ body,
   font-weight: 400;
 }
 
+@media (min-width: 900px) {
+  .MuiTypography-root.text-3-sb {
+    font-size: calc(48rem / 16);
+  }
+}
+
 /* Text-color utils */
 
 .MuiTypography-root.text-dark {

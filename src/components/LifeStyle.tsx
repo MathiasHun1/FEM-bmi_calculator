@@ -44,29 +44,37 @@ const LifeStyle = () => {
       sx={{
         background: 'linear-gradient(to right, white, var(--clr-gradient-end))',
         py: 7,
+        px: { sm: 5 },
+        borderRadius: { md: '35px' },
       }}
     >
-      <Stack spacing={5}>
+      <Stack spacing={4.5} direction={{ md: 'row' }}>
         {data.map((card, index) => (
           <Stack
-            spacing={3}
+            direction={{ sm: 'row', md: 'column' }}
+            spacing={{ xs: 3, sm: 5 }}
             key={card.title}
             ref={(node) => {
               cardsRef.current[index] = node;
             }}
+            sx={{ alignItems: { sm: 'center', md: 'flex-start' } }}
             className="animated_card--left"
           >
-            <ImageWrapper>
+            <ImageWrapper sx={{ flexShrink: 0 }}>
               <img src={card.icon} alt="" />
             </ImageWrapper>
 
-            <Typography className="text-4-sb text-dark">
-              {card.title}
-            </Typography>
-
-            <Typography className="text-6-reg text-light">
-              {card.description}
-            </Typography>
+            <div>
+              <Typography
+                className="text-4-sb text-dark"
+                sx={{ mb: { xs: 2 } }}
+              >
+                {card.title}
+              </Typography>
+              <Typography className="text-6-reg text-light">
+                {card.description}
+              </Typography>
+            </div>
           </Stack>
         ))}
       </Stack>
