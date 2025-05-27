@@ -67,6 +67,7 @@ const Limitations = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const node = entry.target as HTMLDivElement;
+            node.classList.add('visible');
             node.style.opacity = '1';
             node.style.transform = 'translateX(0)';
           }
@@ -81,7 +82,7 @@ const Limitations = () => {
         observers[i].observe(element);
       }
     });
-  });
+  }, []);
 
   return (
     <Container maxWidth="xl">
@@ -93,6 +94,7 @@ const Limitations = () => {
               ref={(node) => {
                 cardRefs.current[index] = node; //  ref callback to set references dynamically
               }}
+              className="animated_card"
               style={{
                 opacity: 0,
                 transform: 'translateX(100%)',

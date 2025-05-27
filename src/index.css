@@ -76,3 +76,21 @@ body,
 .MuiTypography-root.text-light {
   color: var(--clr-grey-500);
 }
+
+/* Global classnames */
+
+.animated_card {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 500ms ease;
+  -webkit-transform: translateX(50px);
+  -webkit-transition: all 500ms ease;
+}
+
+.animated_card.visible {
+  opacity: 1;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+}
