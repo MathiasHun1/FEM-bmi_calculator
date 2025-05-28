@@ -8,7 +8,6 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
 import Form from './components/Form';
-import Informational from './components/Informational';
 import LifeStyle from './components/LifeStyle';
 import Limitations from './components/Limitations';
 
@@ -117,6 +116,7 @@ function App() {
           ref={(node) => {
             ref.current[1] = node;
           }}
+          sx={{ position: 'relative' }}
           className="animated_card--opacity"
         >
           <Paper sx={{ px: 2.5 }} elevation={0}>
@@ -134,19 +134,23 @@ function App() {
               daily for five days a week.
             </Typography>
           </Paper>
+
+          <Box
+            sx={{
+              display: { xs: 'none', lg: 'block' },
+              position: 'absolute',
+              top: '-80%',
+              right: 50,
+            }}
+          >
+            <img src="/images/curved-line-left.svg" alt="" />
+          </Box>
         </Grid>
       </Grid>
 
-      {/*---------- LIFESTYLE SECTION --------*/}
+      {/*---------- LIFESTYLE LIST --------*/}
       <LifeStyle />
 
-      {/*---------- INFO SECTION ----------*/}
-      <Informational
-        topSpacing="50px"
-        bottomSpacing="50px"
-        title="Limitations of BMI"
-        bodyText="Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use."
-      />
       {/*--------- LIMITATIONS SECTION --------*/}
       <Limitations />
     </Box>
