@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import React, { useEffect, useState, type JSX } from 'react';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
 type ResultData = {
   title: string;
@@ -16,6 +17,7 @@ type ResultData = {
 };
 
 const Form = () => {
+  const [calcMode, setCalcMode] = useState('metric');
   const [height, setHeight] = useState<string>('');
   const [weight, setWeight] = useState<string>('');
   const [resultCardData, setResultCardData] = useState<ResultData>({
@@ -155,7 +157,7 @@ const Form = () => {
   };
 
   return (
-    <form>
+    <Box component="form" sx={{ width: { md: '400px', lg: '500px' } }}>
       <FormLabel sx={{ display: 'block', mb: 3 }}>
         <Typography className="text-4-sb text-dark">
           Enter your details below
@@ -170,7 +172,8 @@ const Form = () => {
               row
               aria-label=""
               name=""
-              defaultValue="imperial"
+              value={calcMode}
+              onChange={(e) => setCalcMode(e.target.value)}
               sx={{ width: '100%' }}
             >
               <Grid container sx={{ width: '100%' }}>
@@ -183,7 +186,7 @@ const Form = () => {
                 </Grid>
                 <Grid size={6}>
                   <FormControlLabel
-                    value="imperial"
+                    value="Imperial"
                     control={<BpRadio />}
                     label="Imperial"
                   />
@@ -196,48 +199,58 @@ const Form = () => {
         {/*----------- TEXT FIELDS ---------*/}
         <Grid size={12}>
           <Grid container spacing={4}>
-            <Grid size={{ xs: 12, sm: 6 }}>
-              <TextField
-                id="height"
-                label="height"
-                value={height}
-                fullWidth
-                onChange={(e) => handleChangeHeight(e)}
-                sx={{
-                  position: 'relative',
-                  '&:after': {
-                    position: 'absolute',
-                    top: '50%',
-                    right: '10px',
-                    content: '"cm"',
-                    transform: 'translateY(-50%)',
-                    color: 'var(--clr-blue-500)',
-                    fontWeight: '700',
-                  },
-                }}
-              />
-            </Grid>
-            <Grid size={{ xs: 12, sm: 6 }}>
-              <TextField
-                id="weight"
-                label="weight"
-                value={weight}
-                fullWidth
-                onChange={(e) => handleChangeWeight(e)}
-                sx={{
-                  position: 'relative',
-                  '&:after': {
-                    position: 'absolute',
-                    top: '50%',
-                    right: '10px',
-                    content: '"kg"',
-                    transform: 'translateY(-50%)',
-                    color: 'var(--clr-blue-500)',
-                    fontWeight: '700',
-                  },
-                }}
-              />
-            </Grid>
+            {calcMode === 'metric' && (
+              <>
+                <Grid size={{ xs: 12, sm: 6 }}>
+                  <TextField
+                    id="height"
+                    label="height"
+                    value={height}
+                    fullWidth
+                    onChange={(e) => handleChangeHeight(e)}
+                    sx={{
+                      position: 'relative',
+                      '&:after': {
+                        position: 'absolute',
+                        top: '50%',
+                        right: '10px',
+                        content: '"cm"',
+                        transform: 'translateY(-50%)',
+                        color: 'var(--clr-blue-500)',
+                        fontWeight: '700',
+                      },
+                    }}
+                  />
+                </Grid>
+                <Grid size={{ xs: 12, sm: 6 }}>
+                  <TextField
+                    id="weight"
+                    label="weight"
+                    value={weight}
+                    fullWidth
+                    onChange={(e) => handleChangeWeight(e)}
+                    sx={{
+                      position: 'relative',
+                      '&:after': {
+                        position: 'absolute',
+                        top: '50%',
+                        right: '10px',
+                        content: '"kg"',
+                        transform: 'translateY(-50%)',
+                        color: 'var(--clr-blue-500)',
+                        fontWeight: '700',
+                      },
+                    }}
+                  />
+                </Grid>
+              </>
+            )}
+
+            {calcMode === 'Imperial' && (
+              <Typography color="red">
+                This feature isn't implemented yet
+              </Typography>
+            )}
           </Grid>
         </Grid>
 
@@ -269,7 +282,7 @@ const Form = () => {
           </Stack>
         </Grid>
       </Grid>
-    </form>
+    </Box>
   );
 };
 

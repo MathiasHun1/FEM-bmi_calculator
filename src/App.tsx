@@ -39,7 +39,11 @@ function App() {
           },
         }}
       >
-        <Stack direction={{ md: 'row' }} sx={{ py: { md: 11 } }}>
+        <Stack
+          direction={{ md: 'row' }}
+          sx={{ py: { md: 11 } }}
+          spacing={{ md: 8, lg: 12 }}
+        >
           <Stack
             spacing={2}
             sx={{
@@ -62,7 +66,7 @@ function App() {
             >
               Body Mass Index Calculator
             </Typography>
-            <Typography className="text-6-reg text-light" sx={{}}>
+            <Typography className="text-6-reg text-light">
               Better understand your weight in relation to your height using our
               body mass index (BM) calculator. While BMI is not the sole
               determinant of a healthy weight, it offers a valuable starting
